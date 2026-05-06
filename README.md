@@ -1,18 +1,37 @@
 # Calculator CI/CD with SonarCloud
 
-Minimal Python calculator project with GitHub Actions CI and SonarCloud code analysis.
+Minimal Python Flask calculator API with GitHub Actions CI, SonarCloud code analysis, and Docker support.
 
 ## Features
 
-- Python calculator functions
+- Flask calculator API
 - Pytest unit tests
 - GitHub Actions pipeline
 - SonarCloud scan
+- Docker image build
 
-## Run tests
+## API Endpoints
 
-pip install pytest
+- GET /
+- GET /health
+- GET /calc?op=add&a=10&b=5
+- GET /calc?op=sub&a=10&b=5
+- GET /calc?op=mul&a=10&b=5
+- GET /calc?op=div&a=10&b=5
+
+## Run Locally
+
+pip install -r requirements.txt
+python app.py
+
+## Run Tests
+
 pytest
+
+## Run With Docker
+
+docker build -t calculator-app .
+docker run -p 5000:5000 calculator-app
 
 ## Pipeline
 
